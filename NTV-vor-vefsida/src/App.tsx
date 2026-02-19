@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type SetStateAction } from "react";
 
 import "./App.css";
 
@@ -6,10 +6,10 @@ function App() {
   const [myName, setMyName] = useState("Inga");
   const [submit, setSubmit] = useState("");
 
-  function handleChange(e) {
+  function handleChange(e: { target: { value: SetStateAction<string> } }) {
     setMyName(e.target.value);
   }
-  function submitted(event) {
+  function submitted(event: { preventDefault: () => void }) {
     event.preventDefault();
     setSubmit("submitted");
   }
