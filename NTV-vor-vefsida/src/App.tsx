@@ -1,6 +1,8 @@
 import { useState, type SetStateAction } from "react";
 
 import "./App.css";
+import Layout from "./components/Layout/layout";
+
 
 function App() {
   //for the form:
@@ -15,7 +17,7 @@ function App() {
     setSubmit("submitted");
   }
 
-  //for the little box changing colours... just because I can
+  //for the little box changing colours... just because I can - to be moved to seperate component file
   const colors: string[] = [
     "red",
     "blue",
@@ -33,22 +35,24 @@ function App() {
 
   return (
     <>
-      <h2>Hello World!</h2>
-      <div>{myName}</div>
-      <form onSubmit={submitted}>
-        <input
-          type="text"
-          placeholder="enter your name"
-          onChange={handleChange}
-        />
-        <input type="email" placeholder="enter your email" />
-        <input type="submit" name="" id="" />
-        <p>{submit}</p>
-      </form>
-      <div className="party" style={{ backgroundColor: colors[colorIndex] }}>
-        {/* ath hér að breyta background á div með því að smella á takka */}
-        <button onClick={cycleColor}>Party!</button>
-      </div>
+      <Layout>
+        <h2>Hello World!</h2>
+        <div>{myName}</div>
+        <form onSubmit={submitted}>
+          <input
+            type="text"
+            placeholder="enter your name"
+            onChange={handleChange}
+          />
+          <input type="email" placeholder="enter your email" />
+          <input type="submit" name="" id="" />
+          <p>{submit}</p>
+        </form>
+        <div className="party" style={{ backgroundColor: colors[colorIndex] }}>
+          {/* ath hér að breyta background á div með því að smella á takka */}
+          <button onClick={cycleColor}>Party!</button>
+        </div>
+      </Layout>
     </>
   );
 }
