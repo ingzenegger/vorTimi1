@@ -4,10 +4,15 @@
   padding: 2rem;
   text-align: center;
 }
-.party {
-  margin-top: 20px;
-  padding: 50px;
-  border: 2px solid #333;
-  border-radius: 5px;
-  transition: background-color 0.4s ease;
+.form {
+  margin: 1rem;
+  padding: 1rem;
+}
+.my-btn {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
 }

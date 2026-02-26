@@ -1,4 +1,5 @@
 //I was bored
+import "./partybox.style.css";
 import { useState } from "react";
 
 export default function PartyBox() {

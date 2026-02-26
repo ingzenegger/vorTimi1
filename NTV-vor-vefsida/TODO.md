@@ -18,4 +18,4 @@
 
 - [x] Udemy kúrs, sækja og byrja að horfa
 - [x] Laga error úr tíma 2 (npm install eslint@9.39.3 --save-dev o.fl)
-- [x] setja inn shadcn cardið
+- [x] setja inn shadcn cardið https://ui.shadcn.com/docs/components/base/card

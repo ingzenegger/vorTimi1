@@ -8,15 +8,7 @@ import Layout from "./components/Layout/layout";
 import Input from "./components/input";
 
 import Btn from "./components/btn.tsx";
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "./components/ui/card.tsx";
+import MyCard from "./components/Layout/myCard.tsx";
 
 function App() {
   const [myName, setMyName] = useState("");
@@ -43,23 +35,11 @@ function App() {
           <button onClick={() => alert("submitted:" + email)}>Submit</button>
         </div>
 
-        <div>
+        <div className="my-btn">
           <Btn name="click me" />
         </div>
-
-        <Card className="w-full max-w-sm">
-          <CardHeader>
-            <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card Description</CardDescription>
-            <CardAction>Card Action </CardAction>
-          </CardHeader>
-          <CardContent>
-            <p>Card Content</p>
-          </CardContent>
-          <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter>
-        </Card>
+        <MyCard />
+        <MyCard />
       </Layout>
     </>
   );
