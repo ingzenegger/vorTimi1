@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Input from "../input.tsx";
+import Input from "./input.tsx";
 import {
   Card,
   CardAction,
@@ -8,14 +8,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../ui/card.tsx";
+} from "./ui/card.tsx";
 
 export default function MyCard() {
   const [input, setInput] = useState("some input here");
   return (
     <Card className="w-full max-w-sm">
       <CardHeader>
-        <CardTitle>Card Title</CardTitle>
+        <CardTitle>MyCard Title</CardTitle>
         <CardDescription>Card Description</CardDescription>
         <CardAction>Card Action </CardAction>
       </CardHeader>

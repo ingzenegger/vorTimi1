@@ -7,12 +7,17 @@ import "./App.css";
 import Layout from "./components/Layout/layout";
 import Input from "./components/input";
 
-import Btn from "./components/btn.tsx";
-import MyCard from "./components/Layout/myCard.tsx";
+// import Btn from "./components/btn.tsx";
+import MyCard from "./components/myCard.tsx";
+import Form from "./components/form.tsx";
 
 function App() {
   const [myName, setMyName] = useState("");
   const [email, setEmail] = useState("");
+
+  const onClick = () => {
+    alert("submitted" + email);
+  };
 
   return (
     <>
@@ -35,11 +40,10 @@ function App() {
           <button onClick={() => alert("submitted:" + email)}>Submit</button>
         </div>
 
-        <div className="my-btn">
-          <Btn name="click me" />
-        </div>
+        {/* <div className="my-btn">{/* <Btn name="click me" /> </div> */}
         <MyCard />
         <MyCard />
+        <Form />
       </Layout>
     </>
   );
