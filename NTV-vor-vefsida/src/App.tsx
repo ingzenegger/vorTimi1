@@ -1,57 +1,45 @@
-import { useState, type SetStateAction } from "react";
+//2. tími 24. feb- Búa til card og setja inn props(data)
+// búa til component button
+
+import { useState } from "react";
 
 import "./App.css";
 import Layout from "./components/Layout/layout";
+import Input from "./components/input";
 
+import Btn from "./components/btn.tsx";
+import MyCard from "./components/Layout/myCard.tsx";
 
 function App() {
-  //for the form:
-  const [myName, setMyName] = useState("Inga");
-  const [submit, setSubmit] = useState("");
-
-  function handleChange(e: { target: { value: SetStateAction<string> } }) {
-    setMyName(e.target.value);
-  }
-  function submitted(event: { preventDefault: () => void }) {
-    event.preventDefault();
-    setSubmit("submitted");
-  }
-
-  //for the little box changing colours... just because I can - to be moved to seperate component file
-  const colors: string[] = [
-    "red",
-    "blue",
-    "aqua",
-    "orange",
-    "yellow",
-    "green",
-    "purple",
-    "pink",
-  ];
-  const [colorIndex, setColourIndex] = useState(0);
-  const cycleColor = () => {
-    setColourIndex((prevIndex) => (prevIndex + 1) % colors.length);
-  };
+  const [myName, setMyName] = useState("");
+  const [email, setEmail] = useState("");
 
   return (
     <>
       <Layout>
         <h2>Hello World!</h2>
-        <div>{myName}</div>
-        <form onSubmit={submitted}>
-          <input
+        <div className="form">
+          <div>{myName}</div>
+          <Input
+            value={myName}
+            onChange={(e) => setMyName(e.target.value)}
+            placeholder="Type your name"
             type="text"
-            placeholder="enter your name"
-            onChange={handleChange}
           />
-          <input type="email" placeholder="enter your email" />
-          <input type="submit" name="" id="" />
-          <p>{submit}</p>
-        </form>
-        <div className="party" style={{ backgroundColor: colors[colorIndex] }}>
-          {/* ath hér að breyta background á div með því að smella á takka */}
-          <button onClick={cycleColor}>Party!</button>
+          <Input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Type your email"
+            type="email"
+          />
+          <button onClick={() => alert("submitted:" + email)}>Submit</button>
         </div>
+
+        <div className="my-btn">
+          <Btn name="click me" />
+        </div>
+        <MyCard />
+        <MyCard />
       </Layout>
     </>
   );
