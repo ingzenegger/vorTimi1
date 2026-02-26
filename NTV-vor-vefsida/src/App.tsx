@@ -6,9 +6,17 @@ import { useState } from "react";
 import "./App.css";
 import Layout from "./components/Layout/layout";
 import Input from "./components/input";
-import PartyBox from "./components/partyBox";
+
 import Btn from "./components/btn.tsx";
-import { Card } from "./components/ui/card.tsx";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./components/ui/card.tsx";
 
 function App() {
   const [myName, setMyName] = useState("");
@@ -39,9 +47,19 @@ function App() {
           <Btn name="click me" />
         </div>
 
-        <Card />
-
-        <PartyBox />
+        <Card className="w-full max-w-sm">
+          <CardHeader>
+            <CardTitle>Card Title</CardTitle>
+            <CardDescription>Card Description</CardDescription>
+            <CardAction>Card Action </CardAction>
+          </CardHeader>
+          <CardContent>
+            <p>Card Content</p>
+          </CardContent>
+          <CardFooter>
+            <p>Card Footer</p>
+          </CardFooter>
+        </Card>
       </Layout>
     </>
   );

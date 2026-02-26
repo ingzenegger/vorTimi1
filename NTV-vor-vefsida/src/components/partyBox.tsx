@@ -1,3 +1,4 @@
+//I was bored
 import { useState } from "react";
 
 export default function PartyBox() {
