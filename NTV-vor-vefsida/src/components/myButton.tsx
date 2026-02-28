@@ -3,5 +3,9 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 };
 
 export default function MyButton({ value = "Submit", ...props }: ButtonProps) {
-  return <button {...props}>{value}</button>;
+  return (
+    <button className="my-btn" {...props}>
+      {value}
+    </button>
+  );
 }
