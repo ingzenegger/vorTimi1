@@ -1,14 +1,16 @@
-export default function Input({
-  value,
-  onChange,
-  placeholder,
-  type,
-}: {
+type Props = {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: "text" | "email";
   placeholder?: string;
-  type: string;
-}) {
+};
+
+export default function MyInput({
+  value,
+  onChange,
+  placeholder = "type...",
+  type = "text",
+}: Props) {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     onChange(e);
     //e.target.value
