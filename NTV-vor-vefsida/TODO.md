@@ -20,8 +20,14 @@
 - [x] Laga error úr tíma 2 (npm install eslint@9.39.3 --save-dev o.fl)
 - [x] setja inn shadcn cardið https://ui.shadcn.com/docs/components/base/card
 
-# Tími 3 - Component library - heimaverkefni
+# Tími 3 - Component library
 
+- [x] Heimaverkefni fyrir 3. mars: Create extensive form
 - [x] Vinna upp components tímavinnu með upptöku
-- [x] Create extensive form
 - [x] Kíkja aðeins aftur á Udemy (section 1 and 2 completed)
+
+# Tími 4 - Advanced Hooks Deep Dive
+
+- [ ] Laga til CSS á myForm/ æfa mig að nota Tailwind
+- [ ] Kíkja aðeins á https://react.dev/reference/react/hooks
+- [ ] Heimaverkefni: breyta state í ref í Forminu

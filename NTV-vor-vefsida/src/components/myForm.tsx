@@ -1,28 +1,3 @@
-/* Form
- //props? {type, placeholder}:{type:'string', placeholder:}
-items needed:
- name first
-name last
-email
-phonenumber
-dropdown select: additional preferences
-radio: yes/no
-appointment date selector
-number of guests w +- buttons
-leave a message text area
-submit button
-edit button
-
-start with basic, then work from there
-
-NOTE - DEMO PHOTO FOR FORM DOES NOT HAVE FIELD LABELS ONLY PLACEHOLDERS
-
-NEXT STEP:
-Use MyInput instead of input, then look into Shadcn input
-*/
-
-// import { useState } from "react";
-// import MyInput from "./myInput";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Field, FieldGroup } from "./ui/field";
 import { Input } from "./ui/input";
@@ -71,7 +46,7 @@ export default function MyForm() {
     setEmail("");
     setMobileNumber(0);
     setSelected("");
-    setApprove(true);
+    setApprove(null);
   };
 
   return (

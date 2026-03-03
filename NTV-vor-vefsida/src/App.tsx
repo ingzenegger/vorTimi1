@@ -8,7 +8,7 @@ function App() {
     <>
       <Layout>
         <h2>Hello World!</h2>
-        <MyCard />
+        {/* <MyCard /> */}
         <MyForm />
       </Layout>
     </>
