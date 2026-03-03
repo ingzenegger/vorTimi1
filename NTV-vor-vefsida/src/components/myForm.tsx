@@ -46,7 +46,7 @@ export default function MyForm() {
     setEmail("");
     setMobileNumber(0);
     setSelected("");
-    setApprove(null);
+    setApprove(true);
   };
 
   return (
