@@ -56,7 +56,7 @@ export default function MyForm() {
     { label: "Ghostbusters", value: "ghostbusters" },
   ];
 
-  const onClick = () => {
+  const onSubmit = () => {
     alert(
       approve
         ? `Hello ${firstName} ${lastName}, your email(${email}) and mobile number (${mobileNumber}) have now been added to a random trivia mailing list relating to ${selected} `
@@ -147,7 +147,7 @@ export default function MyForm() {
                   <Label htmlFor="option-two">No</Label>
                 </div>
               </RadioGroup>
-              <Button onClick={onClick} className="w-full">
+              <Button onClick={onSubmit} className="w-full">
                 Submit
               </Button>
               <Separator title="or" />

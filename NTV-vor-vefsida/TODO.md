@@ -22,6 +22,6 @@
 
 # Tími 3 - Component library - heimaverkefni
 
-- [ ] Hlusta aftur á upptöku, fylgja eftir með að byggja components úr tíma
-- [ ] Create extensive form
-- [ ] Kíkja aðeins aftur á Udemy
+- [x] Vinna upp components tímavinnu með upptöku
+- [x] Create extensive form
+- [x] Kíkja aðeins aftur á Udemy (section 1 and 2 completed)
