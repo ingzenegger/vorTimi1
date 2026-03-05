@@ -28,6 +28,6 @@
 
 # Tími 4 - Advanced Hooks Deep Dive
 
-- [ ] Laga til CSS á myForm/ æfa mig að nota Tailwind
-- [ ] Kíkja aðeins á https://react.dev/reference/react/hooks
-- [ ] Heimaverkefni: breyta state í ref í Forminu
+- [x] Laga til CSS á myForm/ æfa mig að nota Tailwind
+- [x] Kíkja aðeins á https://react.dev/reference/react/hooks
+- [x] Heimaverkefni fyrir 5. mars: breyta state í ref í Forminu
