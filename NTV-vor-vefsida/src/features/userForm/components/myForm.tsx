@@ -1,8 +1,8 @@
 ///// HÉLT ÉG SKILDI ÞETTA, SKILDI ÞETTA EKKI. REYNDI AÐ FÁ GEMINI TIL AÐ HJÁLPA MÉR AÐ SKILJA ÞETTA, ONLY MADE IT MORE CONFUSING. MY BEST EFFORT WITH LIMITED TIME(helgin var out) - ER ALLT Í RUGLI BUT HAVE RUN OUT OF TIME FOR THIS RN. En ég gerði amk eitthvað af þessu...
 
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Field, FieldGroup, FieldSet } from "./ui/field";
-import { Input } from "./ui/input";
+import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
+import { Field, FieldGroup, FieldSet } from "@/shared/components/ui/field";
+import { Input } from "@/shared/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -11,20 +11,13 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
-import { Label } from "./ui/label";
-import { Button } from "./ui/button";
+} from "@/shared/components/ui/select";
+import { RadioGroup, RadioGroupItem } from "@/shared/components/ui/radio-group";
+import { Label } from "@/shared/components/ui/label";
+import { Button } from "@/shared/components/ui/button";
 import { useCallback, useEffect, useRef, useState } from "react";
-import useDebounce from "./hooks/useDebounce";
-
-type FormValuesType = {
-  firstName: string;
-  lastName: string;
-  mobileNumber: string;
-  selected: string;
-  radioButton: string | null;
-};
+import useDebounce from "../../../shared/hooks/useDebounce";
+import type { FormValuesType } from "../types/user";
 
 const INITIAL_VALUES: FormValuesType = {
   firstName: "",

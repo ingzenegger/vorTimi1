@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "./ui/card.tsx";
+} from "@/shared/components/ui/card.tsx";
 import MyButton from "./myButton.tsx";
 
 export default function MyCard() {
