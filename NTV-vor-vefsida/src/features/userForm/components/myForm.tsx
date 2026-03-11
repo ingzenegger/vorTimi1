@@ -1,23 +1,15 @@
-///// HÉLT ÉG SKILDI ÞETTA, SKILDI ÞETTA EKKI. REYNDI AÐ FÁ GEMINI TIL AÐ HJÁLPA MÉR AÐ SKILJA ÞETTA, ONLY MADE IT MORE CONFUSING. MY BEST EFFORT WITH LIMITED TIME(helgin var out) - ER ALLT Í RUGLI BUT HAVE RUN OUT OF TIME FOR THIS RN. En ég gerði amk eitthvað af þessu...
-
-import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
-import { Field, FieldGroup, FieldSet } from "@/shared/components/ui/field";
+import { Card, CardContent } from "@/shared/components/ui/card";
+import { Field, FieldGroup } from "@/shared/components/ui/field";
 import { Input } from "@/shared/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/shared/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/shared/components/ui/radio-group";
 import { Label } from "@/shared/components/ui/label";
 import { Button } from "@/shared/components/ui/button";
 import { useCallback, useEffect, useRef, useState } from "react";
 import useDebounce from "../../../shared/hooks/useDebounce";
 import type { FormValuesType } from "../types/user";
+import MyFormHeader from "./myFormHeader";
+import MyFormSelect from "./myFormSelect";
+import MyFormInput from "./myFormInput";
 
 const INITIAL_VALUES: FormValuesType = {
   firstName: "",
@@ -28,38 +20,16 @@ const INITIAL_VALUES: FormValuesType = {
 };
 
 export default function MyForm() {
-  // my state variables:
   const [email, setEmail] = useState("");
   const [values, setValues] = useState<FormValuesType>(INITIAL_VALUES);
-  // const [view, setView] = useState<"entry" | "form">("entry");
 
-  const items = [
+  const goatItems = [
     { label: "Life of Brian", value: "brian" },
     { label: "Blackadder Season 3", value: "blackadder" },
     { label: "Robin Hood: Men in Tights", value: "robin" },
     { label: "Spaceballs", value: "spaceballs" },
     { label: "Ghostbusters", value: "ghostbusters" },
   ];
-
-  // // my button functions:
-  // const handleCreateNew = () => {
-  //   if (!email) return alert("enter email first!");
-  //   setValues(INITIAL_VALUES);
-  //   setView("form");
-  // };
-
-  // const handleLoad = () => {
-  //   if (!email) return alert("Enter email first!");
-  //   const savedData = localStorage.getItem(email);
-
-  //   if (savedData) {
-  //     setValues(JSON.parse(savedData));
-  //   } else {
-  //     alert("No data found for this email. Starting fresh!");
-  //     setValues(INITIAL_VALUES);
-  //   }
-  //   setView("form");
-  // };
 
   const onInputChange = useCallback(
     (key: keyof FormValuesType, value: string) => {
@@ -71,13 +41,6 @@ export default function MyForm() {
   // the debouncing (aka waiting for user to stop typing)
   const debouncedValues = useDebounce(JSON.stringify(values), 1000);
   const debouncedEmail = useDebounce(email, 1000);
-
-  // useEffect(() => {
-  //   if (view === "form" && email) {
-  //     localStorage.setItem(email, JSON.stringify(debouncedValues));
-  //     console.log("saved to localStorage for:", email);
-  //   }
-  // }, [debouncedValues, debouncedEmail, view]);
 
   const onSubmit = () => {
     const { firstName } = values;
@@ -121,90 +84,52 @@ export default function MyForm() {
 
   return (
     <div className="w-full max-w-md">
-      {/* {view === "entry" ? (
-        //screen one, returning just the email input
-      <div>
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} />
-        <Button onClick={handleLoad}>Load</Button>
-        <Button onClick={handleCreateNew}>Create New</Button>
-      </div>
-       ) : (
-        //screen two, returning the actual form */}
-
       <Card className="bg-indigo-950">
-        <CardHeader>
-          <div className="flex gap-2 items-center">
-            <div className="w-full h-px bg-sky-500 my-4 "></div>
-            <CardTitle className="text-white">Example</CardTitle>
-            <div className="w-full h-px bg-sky-500 my-4 "></div>
-          </div>
-        </CardHeader>
+        <MyFormHeader title="Example" />
         <CardContent>
-          <FieldGroup>
-            <Field>
-              <Input
-                className="bg-white"
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              onSubmit();
+            }}
+          >
+            <FieldGroup>
+              <MyFormInput
                 id="email"
                 type="email"
                 placeholder="Email"
-                ref={loadEmailRef}
+                // ref={loadEmailRef}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </Field>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                onSubmit();
-              }}
-            >
-              <Field>
-                <Input
-                  className="bg-white"
-                  id="firstName"
-                  placeholder="First name"
-                  // TODO: Set values to all input fields in the form
-                  value={values.firstName}
-                  onChange={(e) => onInputChange("firstName", e.target.value)}
-                />
-              </Field>
-              <Field>
-                <Input
-                  className="bg-white"
-                  id="lastName"
-                  placeholder="Last name"
-                  value={values.lastName}
-                  onChange={(e) => onInputChange("lastName", e.target.value)}
-                />
-              </Field>
-              <Field>
-                <Input
-                  className="bg-white"
-                  type="number"
-                  placeholder="Mobile number"
-                  value={values.mobileNumber}
-                  onChange={(e) =>
-                    onInputChange("mobileNumber", e.target.value)
-                  }
-                />
-              </Field>
-              <Select
+              <MyFormInput
+                id="firstName"
+                placeholder="First name"
+                // TODO: Set values to all input fields in the form
+                value={values.firstName}
+                onChange={(e) => onInputChange("firstName", e.target.value)}
+              />
+
+              <MyFormInput
+                id="lastName"
+                placeholder="Last name"
+                value={values.lastName}
+                onChange={(e) => onInputChange("lastName", e.target.value)}
+              />
+
+              <MyFormInput
+                type="number"
+                id="mobilenumber"
+                placeholder="Mobile number"
+                value={values.mobileNumber}
+                onChange={(e) => onInputChange("mobileNumber", e.target.value)}
+              />
+
+              <MyFormSelect
                 onValueChange={(value) => onInputChange("selected", value)}
-              >
-                <SelectTrigger className="w-full bg-white">
-                  <SelectValue placeholder="Select..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectLabel>The GOAT?</SelectLabel>
-                    {items.map((item) => (
-                      <SelectItem key={item.value} value={item.label}>
-                        {item.label}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
+                items={goatItems}
+              />
+
               <RadioGroup
                 className="flex text-white"
                 onValueChange={(value) => onInputChange("radioButton", value)}
@@ -235,7 +160,8 @@ export default function MyForm() {
               >
                 SUBMIT
               </Button>
-              <div className="flex gap-2 items-center">
+
+              {/* <div className="flex gap-2 items-center">
                 <div className="w-full h-px bg-sky-500 my-4 "></div>
                 <p className="text-xs text-white">OR</p>
                 <div className="w-full h-px bg-sky-500 my-4 "></div>
@@ -245,54 +171,47 @@ export default function MyForm() {
                 // onClick={resetValues}
               >
                 CLEAR
-              </Button>
-            </form>
-
-            <Card>
-              <CardHeader>
-                <CardTitle>Please enter email address</CardTitle>
-              </CardHeader>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  onLoad();
-                }}
-              >
-                <FieldSet>
-                  <FieldGroup>
-                    <Field>
-                      <Input
-                        className="bg-white"
-                        id="email"
-                        type="email"
-                        ref={loadEmailRef}
-                        placeholder="email"
-                      />
-                    </Field>
-                  </FieldGroup>
-                </FieldSet>
-                <div>
-                  <Button
-                    value="load"
-                    type="submit"
-                    className="bg-green-500 p-4 roudned text-white uppercase"
-                  >
-                    Load
-                  </Button>
-                  <Button
-                    value="create new"
-                    type="submit"
-                    className="bg-green-500 p-4 roudned text-white uppercase"
-                  >
-                    Create new
-                  </Button>
-                </div>
-              </form>
-            </Card>
-          </FieldGroup>
+              </Button> */}
+            </FieldGroup>
+          </form>
         </CardContent>
       </Card>
-      {/* )} */}
+
+      <Card>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            onLoad();
+          }}
+        >
+          <Field>
+            <Input
+              className="bg-white"
+              id="email"
+              type="email"
+              ref={loadEmailRef}
+              placeholder="email"
+            />
+          </Field>
+
+          <div>
+            <Button
+              value="load"
+              type="submit"
+              className="bg-green-500 p-4 roudned text-white uppercase"
+            >
+              Load
+            </Button>
+            <Button
+              value="create new"
+              type="submit"
+              className="bg-green-500 p-4 roudned text-white uppercase"
+            >
+              Create new
+            </Button>
+          </div>
+        </form>
+      </Card>
     </div>
   );
 }

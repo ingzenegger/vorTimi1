@@ -45,4 +45,4 @@
 # Tími 6 - Scalable project architecture
 
 - [ ] Brjóta niður formið í fleiri búta
-- [ ] Lesa https://asrulkadir.medium.com/3-folder-structures-in-react-ive-used-and-why-feature-based-is-my-favorite-e1af7c8e91ec 
+- [x] Lesa https://asrulkadir.medium.com/3-folder-structures-in-react-ive-used-and-why-feature-based-is-my-favorite-e1af7c8e91ec
