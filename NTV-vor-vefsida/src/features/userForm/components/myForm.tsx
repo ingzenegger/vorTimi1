@@ -60,7 +60,7 @@ export default function MyForm() {
       if (localStorageValue) {
         const parsedLocalStorageValue: FormValuesType =
           JSON.parse(localStorageValue);
-        window.alert(parsedLocalStorageValue.firstName);
+        window.alert(`Welcome back ${parsedLocalStorageValue.firstName}`);
         loadEmailRef.current.value = "";
         setValues(parsedLocalStorageValue);
       } else {
@@ -70,6 +70,10 @@ export default function MyForm() {
       window.alert("Some bug was found!");
     }
   }, []);
+
+  const onClear = () => {
+    setValues(INITIAL_VALUES);
+  };
 
   useEffect(() => {
     if (email && debouncedValues) {
@@ -160,18 +164,6 @@ export default function MyForm() {
               >
                 SUBMIT
               </Button>
-
-              {/* <div className="flex gap-2 items-center">
-                <div className="w-full h-px bg-sky-500 my-4 "></div>
-                <p className="text-xs text-white">OR</p>
-                <div className="w-full h-px bg-sky-500 my-4 "></div>
-              </div>
-              <Button
-                className="w-full border border-pink-600"
-                // onClick={resetValues}
-              >
-                CLEAR
-              </Button> */}
             </FieldGroup>
           </form>
         </CardContent>
@@ -199,13 +191,15 @@ export default function MyForm() {
               value="load"
               type="submit"
               className="bg-green-500 p-4 roudned text-white uppercase"
+              
             >
               Load
             </Button>
             <Button
               value="create new"
-              type="submit"
+              type="reset"
               className="bg-green-500 p-4 roudned text-white uppercase"
+              onClick={onClear}
             >
               Create new
             </Button>
